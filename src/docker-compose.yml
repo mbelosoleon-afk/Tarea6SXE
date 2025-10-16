@@ -1,0 +1,44 @@
+services:
+
+  db:
+    image: mariadb:10.11
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: contraseñasupersegura
+      MYSQL_DATABASE: prestashop_db
+      MYSQL_USER: prestashop_user
+      MYSQL_PASSWORD: contraseñasupersegura
+    volumes:
+      - db_data:/var/lib/mysql
+
+  prestashop:
+    depends_on:
+      - db
+    image: prestashop/prestashop:8.0
+    restart: always
+    environment:
+      DB_SERVER: db
+      DB_NAME: prestashop_db
+      DB_USER: prestashop_user
+      Db_PASSWORD: mysuperseguracontraseña
+    ports:
+      - "8081:80"
+    volumes:
+      - prestashop_data:/var/www/html
+
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "8082:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: misupersecretacontraseñaroot
+      PMA_ARBITRARY: 1
+
+volumes:
+  db_data:
+  prestashop_data:
