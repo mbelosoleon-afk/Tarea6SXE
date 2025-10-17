@@ -2,7 +2,7 @@ En el yml creamos la base de datos con sus variables de entorno, la imagen de my
 
 ![DockerCompose1.png](Images/DockerCompose1.png)
 
-Hacemos también la configuración de prestashop para que depende de "db" y compruebe su estado con healthcheck.
+Hacemos también la configuración de prestashop para que dependa de "db" y compruebe su estado con healthcheck.
 
 ![DockerCompose2.png](Images/DockerCompose2.png)
 
@@ -20,6 +20,6 @@ Para ejecutar el código, usamos el comando docker compose up -d.
 Al ejecutarlo y buscar el localhost:8080, debemos installar prestashop y conectarlo a nuestra base de datos.
 
 
-Al realizar la instalación a través de iniciar sesión en phpmyadmin con el localhost:8081, veremos nuetra base de datos.
+Al realizar la instalación a través de iniciar sesión en phpmyadmin con el localhost:8081, veremos nuestra base de datos.
 
 ![DockerCompose4.png](Images/DockerCompose5.png)
