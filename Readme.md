@@ -1,4 +1,5 @@
 En el yml creamos la base de datos con sus variables de entorno, la imagen de mysql le hacemos un healthcheck y le asignamos su volumen
+
 ![DockerCompose1.png](Images/DockerCompose1.png)
 
 Hacemos también la configuración de prestashop para que depende de "db" y compruebe su estado con healthcheck.
